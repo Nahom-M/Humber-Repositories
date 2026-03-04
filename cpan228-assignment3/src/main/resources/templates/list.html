@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Inventory List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">View Inventory</h1>
+
+    <!-- Navigation Buttons -->
+    <div class="mb-3 text-center">
+        <a href="/" class="btn btn-secondary">Return To Home</a>
+        <a href="/new_item" class="btn btn-primary">Add An Item (Admin & Employee Only)</a>
+    </div>
+
+    <!-- Filter, Sort, and Reset Buttons -->
+    <div class="mb-3 text-center">
+        <a href="/list/filter/brand-and-year" class="btn btn-dark">Show Balenciaga Items (2022)</a>
+        <a href="/list/sort" class="btn btn-dark">Sort by Brand</a>
+        <a href="/list" class="btn btn-dark">View Original List</a>
+    </div>
+
+    <!-- Dynamic Filters -->
+    <div class="mb-3 text-center">
+        <!-- Year Filter -->
+        <form action="/list/filter/year" method="get" style="display:inline;">
+            <select name="year" class="form-select d-inline-block w-auto">
+                <option value="">Select Year</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select>
+            <button type="submit" class="btn btn-dark">Filter by Year</button>
+        </form>
+        
+
+        <!-- Brand Filter -->
+        <form action="/list/filter/brand" method="get" style="display:inline;">
+            <select name="brand" class="form-select d-inline-block w-auto">
+                <option value="">Select Brand</option>
+                <option value="BALENCIAGA">Balenciaga</option>
+                <option value="GUCCI">Gucci</option>
+                <option value="LOUIS_VUITTON">Louis Vuitton</option>
+                <option value="PRADA">Prada</option>
+                <option value="VERSACE">Versace</option>
+            </select>
+            <button type="submit" class="btn btn-dark">Filter by Brand</button>
+        </form>
+    </div>
+
+    <!-- Table to Display Items -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Year of Creation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.brand}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.yearCreated}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
