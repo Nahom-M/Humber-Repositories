@@ -1,0 +1,205 @@
+/*Global Changes*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #05081E;
+  color: white;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*Navbar*/
+.navbar {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  padding-left: 15px;
+  width: 60%;
+}
+
+.resume {
+  width: 10%;
+}
+
+.navbar-logo a {
+  color: white;
+}
+
+.dropdown-menu{
+  text-align: center;
+}
+
+.dropdown-menu, .dropdown-menu li, .dropdown-menu a {
+  background-color: #172067;
+}
+
+.dropdown-menu li {
+  padding: 10px 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #313a83;
+}
+
+
+/*Main Content*/
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.content h1 {
+  font-size: 30px;
+}
+
+.content p {
+  font-size: 18px;
+  color: white;
+}
+
+/*Footer*/
+.footer {
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+}
+
+.footer ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+}
+
+.footer ul li {
+  list-style: none;
+}
+
+/*Education.jsx*/
+h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gridItems {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid #313a83;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.gridItems .font-weight-bold {
+  font-weight: bold;
+}
+
+
+.education-container .col {
+  font-size: 1.1rem;
+}
+
+/*Experience.jsx*/
+#box1Description, #box2Description, #box3Description {
+  display: none;
+  padding-top: 10px;
+}
+
+/*Overview.jsx*/
+/*None currently*/
+
+/*Animations*/
+.moving-text {
+  transition: transform 1s ease;
+  animation: moveUpDown 3s ease infinite alternate;
+  width: 100%;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px); 
+  }
+  50% {
+    transform: translateY(0px); 
+  }
+  75% {
+    transform: translateY(-5px); 
+  }
+  100% {
+    transform: translateY(0px); 
+  }
+}
+
+@media (max-width: 600px) {
+  .dropdown-menu {
+    width: 100%; 
+  }
+
+  .navbar-logo {
+    font-size: 24px; 
+  }
+
+  .resume {
+    width: 30%;
+  }
+
+  .education-container {
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 40px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .gridItems {
+    flex-direction: column;
+    text-align: center;
+    padding: 5px 10px;
+  }
+
+  .gridItems .font-weight-bold {
+    font-size: 1rem;
+  }
+
+  .education-container .col {
+    font-size: 0.9rem;
+  }
+}
